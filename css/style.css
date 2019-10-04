@@ -65,7 +65,6 @@ footer h6 {
 }
 
 .search-section {
-  font-family: "Shadows Into Light", cursive;
   background: #111;
   color: white;
   width: 40%;
@@ -83,7 +82,8 @@ footer h6 {
 }
 
 .search-section span {
-  color: skyblue;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
 }
 
 .search-section h6 {
@@ -122,7 +122,7 @@ footer h6 {
 }
 
 .location {
-  color: lightgray;
+  color: #000;
   margin-bottom: 2rem;
 }
 
@@ -136,6 +136,8 @@ footer h6 {
 }
 
 .space {
+  color: transparent;
+  -webkit-text-stroke: 1px white;
   padding-left: 10px;
 }
 

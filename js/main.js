@@ -50,7 +50,6 @@ function geocode(e) {
               windSpeed,
               uvIndex
             } = data.currently;
-            let weatherImage = `${icon}.png`;
             let celsius = Math.floor(((temperature - 32) * 5) / 9);
 
             let output = `
