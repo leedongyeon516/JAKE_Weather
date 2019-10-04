@@ -10,6 +10,8 @@ body {
 
 input {
   border: none;
+  border-radius: 0 !important;
+  -webkit-appearance: none;
   text-align: center;
   width: 30vw;
   height: 1.5rem;
@@ -199,15 +201,24 @@ footer h6 {
   .location {
     font-size: 0.75rem;
   }
+
+  .modal-content-modified {
+    width: 70%;
+    margin-top: 40%;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 850px) {
   .search-section h1 {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
   }
 
   .location {
     font-size: 0.5rem;
+  }
+
+  .modal-content-modified {
+    margin-top: 10%;
   }
 }
 
@@ -232,5 +243,9 @@ footer h6 {
 
   .location {
     font-size: 1rem;
+  }
+
+  .modal-content-modified {
+    margin-top: 20%;
   }
 }
