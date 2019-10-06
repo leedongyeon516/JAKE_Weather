@@ -221,7 +221,7 @@ img {
 }
 
 .location h1 {
-  font-family: "IM Fell English SC", serif;
+  font-family: "Yeon Sung", serif;
   letter-spacing: 0.35rem;
   margin-right: -0.35rem;
   margin-bottom: 2rem;
@@ -346,6 +346,7 @@ img {
 }
 
 .color {
+  font-size: 2rem;
   color: darkslateblue;
 }
 
@@ -431,6 +432,15 @@ img {
     display: none;
   }
 
+  .today {
+    padding-right: 0;
+    padding-bottom: 5%;
+  }
+
+  .color {
+    font-size: 1rem;
+  }
+
   .today p,
   .tomorrow p {
     font-size: 0.75rem;
@@ -498,6 +508,10 @@ img {
 
   .information-content h1 {
     display: none;
+  }
+
+  .color {
+    font-size: 1rem;
   }
 
   .today p,

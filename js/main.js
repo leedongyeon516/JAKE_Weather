@@ -184,6 +184,12 @@ function geocode(e) {
   }
 }
 
+function getFocus() {
+  if (searchBtn.innerHTML === "I N F O") {
+    searchBtn.innerHTML = "G O";
+  }
+}
+
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
