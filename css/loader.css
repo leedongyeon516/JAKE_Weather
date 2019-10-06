@@ -16,7 +16,6 @@
 }
 
 .loader > span:nth-child(2) {
-  background-color: black;
   animation-delay: 0.2s;
 }
 

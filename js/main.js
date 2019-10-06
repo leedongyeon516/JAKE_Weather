@@ -1,8 +1,16 @@
 const loader = document.querySelector(".loader");
 const locationForm = document.querySelector(".location-form");
+const searchSection = document.querySelector(".search-section h1");
 const searchBtn = document.querySelector(".search-btn");
+const resultsSection = document.querySelector(".results-section");
+const information = document.querySelector(".information");
 const modal = document.querySelector(".modal-modified");
+const modalContent = document.querySelector(".modal-content-modified p");
 const closeBtn = document.querySelector(".close-btn");
+
+searchSection.addEventListener("click", () => {
+  window.location.reload();
+});
 
 locationForm.addEventListener("submit", geocode);
 searchBtn.addEventListener("click", geocode);
@@ -31,6 +39,7 @@ function geocode(e) {
       .then(function(response) {
         let lat = response.data.results[0].geometry.location.lat;
         let lng = response.data.results[0].geometry.location.lng;
+        let city = response.data.results[0].formatted_address;
 
         const proxy = "https://cors-anywhere.herokuapp.com/";
         const api = `${proxy}https://api.darksky.net/forecast/0669e06f4eac8f026e089f2322af95ea/${lat},${lng}`;
@@ -50,14 +59,20 @@ function geocode(e) {
               windSpeed,
               uvIndex
             } = data.currently;
+
+            let weatherNight = `
+                  <div class="stars"></div>
+                  <div class="twinkling"></div>`;
             let celsius = Math.floor(((temperature - 32) * 5) / 9);
 
             let output = `
                   <div class="location">
-                    <h1>${data.timezone.replace("/", ",").replace("_", "")}</h1>
+                    <h1>${city}</h1>
                   </div>
                   <div class="result">
-                    <canvas class="icon" width="80" height="80"></canvas>
+                    <div class="summary">
+                      <h3>${summary}</h3>
+                    </div>
                     <div class="temperature">
                       <h3>${celsius}<span class="space">C</span></h3><br>
                       <h3>${Math.floor(
@@ -66,24 +81,58 @@ function geocode(e) {
                     </div>
                   </div>`;
 
-            document.querySelector(".results-window").innerHTML = output;
+            if (icon == "clear-day") {
+              resultsSection.classList.add("clear");
+              resultsSection.style.background =
+                "linear-gradient(rgb(153, 240, 243), rgb(33, 126, 219))";
+            } else if (icon == "cloudy" || icon == "partly-cloudy-day") {
+              resultsSection.classList.add("cloudy");
+              resultsSection.style.background =
+                "linear-gradient(rgb(104, 109, 109), rgb(33, 126, 219))";
+            } else if (icon == "clear-night" || icon == "partly-cloudy-night") {
+              resultsSection.style.background = "none";
+              resultsSection.classList.add("night");
 
-            function setIcons(icon, iconID) {
-              const skycons = new Skycons({ color: "white" });
-              const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-
-              skycons.play();
-
-              return skycons.set(iconID, Skycons[currentIcon]);
+              output = `
+                ${weatherNight}
+                <div class="location">
+                  <h1>${city}</h1>
+                </div>
+                <div class="result">
+                  <div class="summary">
+                    <h3>${summary}</h3>
+                  </div>
+                  <div class="temperature">
+                    <h3>${celsius}<span class="space">C</span></h3><br>
+                    <h3>${Math.floor(
+                      temperature
+                    )}<span class="space">F</span></h3>
+                  </div>
+                </div>`;
+            } else if (icon == "rain") {
+              resultsSection.style.background = "#999 url('images/Drops_.png')";
+              resultsSection.classList.add("rain");
+            } else if (icon == "wind" || icon == "fog") {
+              resultsSection.style.background =
+                "linear-gradient(rgb(135, 231, 241), rgb(235, 157, 245))";
+            } else if (icon == "snow" || icon == "sleet") {
+              resultsSection.style.background =
+                "linear-gradient(rgb(135, 231, 241), rgb(235, 157, 245))";
+            } else {
+              resultsSection.style.background =
+                "linear-gradient(rgb(4, 4, 7), rgb(37, 103, 170))";
             }
 
-            setIcons(icon, document.querySelector(".icon"));
+            document.querySelector(".results-window").innerHTML = output;
 
-            searchBtn.innerHTML = "D E T A I L";
+            searchBtn.innerHTML = "I N F O";
           });
       })
       .catch(function(error) {
         console.log(error);
+
+        modalContent.innerHTML = "There is no information in the database.";
+        modal.style.display = "block";
       });
   }
 }
@@ -93,7 +142,15 @@ closeBtn.addEventListener("click", function() {
 });
 
 window.addEventListener("click", function(e) {
-  if (e.target == modal) {
+  if (e.target == modal || e.target == information) {
     modal.style.display = "none";
+    information.style.display = "none";
+  }
+});
+
+searchBtn.addEventListener("click", () => {
+  if (searchBtn.innerHTML === "I N F O") {
+    information.style.display = "block";
+    information.classList.add("display");
   }
 });

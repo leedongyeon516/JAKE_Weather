@@ -18,7 +18,8 @@
         <form class="location-form">
           <input
             type="text"
-            placeholder="Type Your City"
+            placeholder="Type your city or any address"
+            autocomplete="off"
             class="location-input"
           />
         </form>
@@ -38,10 +39,14 @@
     <div class="modal-modified">
       <div class="modal-content-modified">
         <p>
-          Please type any city name you want
+          Please type any city name you want.
         </p>
         <br /><br /><span class="close-btn">Close</span>
       </div>
+    </div>
+
+    <div class="information">
+      <div class="information-content"></div>
     </div>
 
     <footer>
@@ -50,7 +55,6 @@
     </footer>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/skycons.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
