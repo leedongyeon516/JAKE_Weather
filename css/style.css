@@ -126,7 +126,7 @@ img {
 .results-section {
   font-size: 1.25rem;
   color: white;
-  background: url("../images/World.png") no-repeat;
+  background: url("../images/World.png") no-repeat center;
   width: 100%;
   height: 72.5vh;
   display: flex;
@@ -222,6 +222,7 @@ img {
 
 .location h1 {
   font-family: "Yeon Sung", serif;
+  color: white;
   letter-spacing: 0.35rem;
   margin-right: -0.35rem;
   margin-bottom: 2rem;
@@ -229,11 +230,13 @@ img {
 }
 
 .summary {
+  color: white;
   z-index: 2;
 }
 
 .temperature {
   letter-spacing: 0.25rem;
+  color: white;
   margin-left: 15%;
   display: flex;
   flex-direction: column;
@@ -241,38 +244,56 @@ img {
 }
 
 .space {
-  font-family: "IM Fell English SC", serif;
   font-size: 1.25rem;
+  color: transparent;
+  -webkit-text-stroke: white 1px;
   padding-left: 10px;
 }
 
 /**/
 .clear .location h1,
-.rain .location h1 {
+.rain .location h1,
+.snow .location h1 {
   color: black;
 }
 
 .clear .temperature,
 .clear .summary,
 .rain .temperature,
-.rain .summary {
+.rain .summary,
+.snow .temperature,
+.snow .summary {
   color: black;
 }
 
-.night .location h1 {
+.clear .space,
+.rain .space,
+.snow .space {
+  color: transparent;
+  -webkit-text-stroke: black 1px;
+}
+
+/**/
+.clould .location h1,
+.night .location h1,
+.wind .location h1 {
   color: white;
 }
 
+.cloud .temperature,
+.cloud .summary,
 .night .temperature,
-.night .summary {
+.night .summary,
+.wind .temperature,
+.wind .summary {
   color: white;
 }
 
-.location h1 {
-  letter-spacing: 0.35rem;
-  margin-right: -0.35rem;
-  margin-bottom: 2rem;
-  z-index: 2;
+.cloud .space,
+.night .space,
+.wind .space {
+  color: transparent;
+  -webkit-text-stroke: white 1px;
 }
 
 .modal-modified,
@@ -312,7 +333,6 @@ img {
 }
 
 .information-content {
-  font-family: "Caveat", cursive;
   font-size: 0.75rem;
   background: white;
   width: 100%;
@@ -323,7 +343,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.9;
   cursor: pointer;
 }
 
@@ -332,26 +351,42 @@ img {
 }
 
 .information-content p {
-  font-family: "IM Fell English SC", serif;
+  font-family: "Muli", sans-serif;
   font-size: 1.25rem;
-  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .data {
   display: flex;
 }
 
+.today,
+.tomorrow {
+  padding: 2.5rem;
+}
+
 .today {
-  padding-right: 7.5%;
+  background: #f4f4f4;
+  color: black;
+}
+
+.impact {
+  text-transform: uppercase;
+  color: darkgray;
 }
 
 .color {
-  font-size: 2rem;
-  color: darkslateblue;
+  font-size: 1.25rem;
+  color: dimgray;
+}
+
+.unit {
+  font-family: "Permanent Marker", cursive;
+  font-size: 0.95rem;
 }
 
 .close-btn {
-  font-family: "Cinzel", serif;
+  font-family: "IM Fell English SC", serif;
   font-size: 0.75rem;
   font-weight: bold;
   letter-spacing: 0.25rem;
@@ -369,6 +404,13 @@ img {
   width: 15px;
   height: 15px;
   background: darkred;
+}
+
+@media only screen and (max-height: 325px) {
+  .today,
+  .tomorrow {
+    padding: 0.25rem 2.5rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -432,18 +474,20 @@ img {
     display: none;
   }
 
-  .today {
-    padding-right: 0;
-    padding-bottom: 5%;
-  }
-
-  .color {
-    font-size: 1rem;
+  .today,
+  .tomorrow {
+    padding: 0.5rem 2.5rem;
+    margin-right: 0;
   }
 
   .today p,
-  .tomorrow p {
-    font-size: 0.75rem;
+  .tomorrow p,
+  .color {
+    font-size: 0.5rem;
+  }
+
+  .unit {
+    font-size: 0.5rem;
   }
 }
 
@@ -506,17 +550,18 @@ img {
     }
   }
 
-  .information-content h1 {
-    display: none;
-  }
-
-  .color {
-    font-size: 1rem;
+  .information-content p {
+    padding-top: 0.5rem;
   }
 
   .today p,
-  .tomorrow p {
+  .tomorrow p,
+  .color {
     font-size: 0.75rem;
+  }
+
+  .unit {
+    font-size: 0.5rem;
   }
 }
 
@@ -550,6 +595,32 @@ img {
   .information-content h1 {
     font-size: 1rem;
     display: block;
+  }
+
+  .information-content p {
+    padding-top: 1rem;
+  }
+
+  .today p,
+  .tomorrow p,
+  .color {
+    font-size: 1rem;
+  }
+
+  .unit {
+    font-size: 0.75rem;
+  }
+}
+
+@media all and (device-width: 1024px) and (device-height: 768px) and (orientation: landscape) {
+  .today p,
+  .tomorrow p,
+  .color {
+    font-size: 1rem;
+  }
+
+  .unit {
+    font-size: 0.75rem;
   }
 }
 

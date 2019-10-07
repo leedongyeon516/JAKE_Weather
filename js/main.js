@@ -67,7 +67,7 @@ function geocode(e) {
             let weatherNight = `
                   <div class="stars"></div>
                   <div class="twinkling"></div>`;
-            let celsius = Math.floor(((temperature - 32) * 5) / 9);
+            let celsius = convertToCel(temperature);
 
             let output = `
                   <div class="location">
@@ -90,7 +90,7 @@ function geocode(e) {
               resultsSection.style.background =
                 "linear-gradient(rgb(153, 240, 243), rgb(33, 126, 219))";
             } else if (icon == "cloudy" || icon == "partly-cloudy-day") {
-              resultsSection.classList.add("cloudy");
+              resultsSection.classList.add("cloud");
               resultsSection.style.background =
                 "linear-gradient(rgb(104, 109, 109), rgb(33, 126, 219))";
             } else if (icon == "clear-night" || icon == "partly-cloudy-night") {
@@ -114,12 +114,13 @@ function geocode(e) {
                   </div>
                 </div>`;
             } else if (icon == "rain") {
-              resultsSection.style.background = "#999 url('images/Drops_.png')";
               resultsSection.classList.add("rain");
-            } else if (icon == "wind" || icon == "fog") {
-              resultsSection.style.background =
-                "linear-gradient(rgb(135, 231, 241), rgb(235, 157, 245))";
+              resultsSection.style.background = "#999 url('images/Drops_.png')";
             } else if (icon == "snow" || icon == "sleet") {
+              resultsSection.classList.add("snow");
+              resultsSection.style.background = "#url('images/Snow_.gif')";
+            } else if (icon == "wind" || icon == "fog") {
+              resultsSection.classList.add("wind");
               resultsSection.style.background =
                 "linear-gradient(rgb(135, 231, 241), rgb(235, 157, 245))";
             } else {
@@ -130,38 +131,46 @@ function geocode(e) {
             let weatherInfo = `
                   <div class="data">
                     <div class="today">
-                      <p><span class="color">Today</span><br>${
+                      <p><span class="impact">Today</span><br><br>${
                         data.daily.data[0].summary
-                      }</p>
-                      <P>Temperature <span class="color">${
+                      }</p><br>
+                      <P>Temperature<br><span class="color">L ${convertToCel(
                         data.daily.data[0].temperatureLow
-                      } F - ${data.daily.data[0].temperatureHigh} F</span></p>
+                      )} <span class="unit">C </span><br>H ${convertToCel(
+              data.daily.data[0].temperatureHigh
+            )} <span class="unit">C</span></span></p>
                       <P>Chance of rain <span class="color">${Math.floor(
                         precipProbability * 100
-                      )} %</span></P>
-                      <P>Humidity <span class="color">${humidity *
-                        100} %</span></P>
-                      <P>Wind <span class="color">${windSpeed} km/h</span></P>
-                      <P>Visibility <span class="color">${visibility} km</span></P>
-                      <P>UV <span class="color">${uvIndex}</span></P>
+                      )} <span class="unit">%</span></span></P>
+                      <P>Humidity <span class="color">${Math.floor(
+                        humidity * 100
+                      )} <span class="unit">%</span></span></P>
+                      <P>Wind <span class="color">${windSpeed} <span class="unit">km/h</span></span></P>
+                      <P>Visibility <span class="color">${visibility} <span class="unit">km</span></span></P>
+                      <P>UV Index <span class="color">${uvIndex}</span></P>
                     </div>
                     <div class="tomorrow">
-                      <p><span class="color">Tomorrow</span><br>${
+                      <p><span class="impact">Tomorrow</span><br><br>${
                         data.daily.data[1].summary
-                      }</p>
-                      <P>Temperature <span class="color">${temperatureLow} F - ${temperatureHigh} F</span></p>
+                      }</p><br>
+                      <P>Temperature<br><span class="color"><span class="color">L</span> ${convertToCel(
+                        temperatureLow
+                      )} <span class="unit">C</span><br>H ${convertToCel(
+              temperatureHigh
+            )} <span class="unit">C</span></span></p>
                       <P>Chance of rain <span class="color">${Math.floor(
                         data.daily.data[1].precipProbability * 100
-                      )} %</span></P>
-                      <P>Humidity <span class="color">${data.daily.data[1]
-                        .humidity * 100} %</span></P>
+                      )} <span class="unit">%</span></span></P>
+                      <P>Humidity <span class="color">${Math.floor(
+                        data.daily.data[1].humidity * 100
+                      )} <span class="unit">%</span></span></P>
                       <P>Wind <span class="color">${
                         data.daily.data[1].windSpeed
-                      } km/h</span></P>
+                      } <span class="unit">km/h</span></span></P>
                       <P>Visibility <span class="color">${
                         data.daily.data[1].visibility
-                      } km</span></P>
-                      <P>UV <span class="color">${
+                      } <span class="unit">km</span></span></P>
+                      <P>UV Index <span class="color">${
                         data.daily.data[1].uvIndex
                       }</span></P>
                     </div>
@@ -188,6 +197,12 @@ function getFocus() {
   if (searchBtn.innerHTML === "I N F O") {
     searchBtn.innerHTML = "G O";
   }
+}
+
+function convertToCel(fahren) {
+  let cel = Math.floor(((fahren - 32) * 5) / 9);
+
+  return cel;
 }
 
 closeBtn.addEventListener("click", () => {
