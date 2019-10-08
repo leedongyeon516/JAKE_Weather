@@ -178,7 +178,7 @@ function geocode(e) {
                       }</span></P>
                     </div>
                   </div>
-                  <footer>
+                  <footer class="footer-modified">
                     <h6>Powered by Dark Sky</h6>
                   </footer>`;
 

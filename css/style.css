@@ -488,7 +488,7 @@ img {
   .today,
   .tomorrow {
     width: 100vw;
-    height: 47.5vh;
+    height: 50vh;
     margin-right: 0;
     text-align: center;
   }
@@ -504,8 +504,8 @@ img {
     font-size: 0.5rem;
   }
 
-  footer {
-    height: 7.5vh;
+  .footer-modified {
+    display: none;
   }
 }
 
@@ -574,8 +574,8 @@ img {
 
   .today,
   .tomorrow {
-    width: 45vw;
-    height: 90vh;
+    width: 50vw;
+    height: 100vh;
   }
 
   .today p,
@@ -587,6 +587,10 @@ img {
 
   .unit {
     font-size: 0.5rem;
+  }
+
+  .footer-modified {
+    display: none;
   }
 }
 
@@ -628,7 +632,8 @@ img {
 
   .today,
   .tomorrow {
-    height: 100%;
+    width: 50vw;
+    height: 100vh;
   }
 
   .today p,
