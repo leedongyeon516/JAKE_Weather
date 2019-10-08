@@ -218,10 +218,10 @@ closeBtn.addEventListener("click", () => {
 });
 
 informationContent.addEventListener("click", () => {
-  if (information.style.display === "none") {
-    information.style.display = "block";
+  if (information.style.transform === "translateY(-200%)") {
+    information.style.transform = "translateY(0)";
   } else {
-    information.style.display = "none";
+    information.style.transform = "translateY(-200%)";
   }
 });
 
@@ -233,7 +233,6 @@ window.addEventListener("click", e => {
 
 searchBtn.addEventListener("click", () => {
   if (searchBtn.innerHTML === "D E T A I L S") {
-    information.style.display = "block";
-    information.classList.add("display");
+    information.style.transform = "translateY(0)";
   }
 });

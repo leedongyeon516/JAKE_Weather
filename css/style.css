@@ -28,7 +28,6 @@ input:focus {
 }
 
 input::placeholder {
-  font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing: 0.1rem;
   margin-right: -0.1rem;
   color: black;
@@ -50,7 +49,7 @@ footer {
   font-size: 0.5rem;
   letter-spacing: 0.2rem;
   margin-right: -0.2rem;
-  width: 100%;
+  width: 100vw;
   color: black;
   text-align: center;
   padding: 15px;
@@ -58,7 +57,7 @@ footer {
 }
 
 footer h6 {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 
 img {
@@ -110,7 +109,7 @@ img {
   text-decoration: none;
   background: none;
   border: none;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "IM Fell English SC", serif;
   font-size: 0.65rem;
   color: black;
   padding: 0.5rem 1rem;
@@ -336,12 +335,7 @@ img {
 .information {
   display: block;
   transform: translateY(-200%);
-  transition: all 0.5s ease-in-out;
-}
-
-.information.display {
-  transform: translateY(0);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.85s ease-in-out;
 }
 
 .modal-content-modified,
@@ -354,7 +348,6 @@ img {
 
 .information-content {
   font-size: 0.75rem;
-  background-color: white;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -363,7 +356,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.75;
   cursor: pointer;
 }
 
@@ -379,16 +371,18 @@ img {
 }
 
 .data {
-  background: #f4f4f4;
+  background: skyblue;
   display: flex;
-  opacity: 0.85;
 }
 
 .today,
 .tomorrow {
   color: black;
   padding: 1rem 2.5rem 2.5rem 2.5rem;
-  opacity: 0.8;
+}
+
+.today {
+  background: pink;
 }
 
 .impact {
@@ -414,18 +408,13 @@ img {
   letter-spacing: 0.25rem;
   margin-right: -0.25rem;
   color: gray;
+  background: #f4f4f4;
   float: right;
   cursor: pointer;
 }
 
 .close-btn:hover {
   color: black;
-}
-
-.close-btn-modified {
-  width: 15px;
-  height: 15px;
-  background: darkred;
 }
 
 @media only screen and (max-height: 325px) {
@@ -498,18 +487,25 @@ img {
 
   .today,
   .tomorrow {
-    padding: 0.5rem 2.5rem;
+    width: 100vw;
+    height: 47.5vh;
     margin-right: 0;
+    text-align: center;
   }
 
   .today p,
   .tomorrow p,
   .color {
-    font-size: 0.5rem;
+    font-size: 0.25rem;
+    padding-top: 0.5rem;
   }
 
   .unit {
     font-size: 0.5rem;
+  }
+
+  footer {
+    height: 7.5vh;
   }
 }
 
@@ -576,10 +572,17 @@ img {
     padding-top: 0.5rem;
   }
 
+  .today,
+  .tomorrow {
+    width: 45vw;
+    height: 90vh;
+  }
+
   .today p,
   .tomorrow p,
   .color {
     font-size: 0.75rem;
+    text-align: right;
   }
 
   .unit {
@@ -621,6 +624,11 @@ img {
 
   .information-content p {
     padding-top: 1rem;
+  }
+
+  .today,
+  .tomorrow {
+    height: 100%;
   }
 
   .today p,
