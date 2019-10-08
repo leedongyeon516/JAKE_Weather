@@ -38,6 +38,8 @@ function geocode(e) {
         }
       })
       .then(function(response) {
+        console.log(response);
+
         let lat = response.data.results[0].geometry.location.lat;
         let lng = response.data.results[0].geometry.location.lng;
         let city = response.data.results[0].formatted_address;
@@ -64,6 +66,7 @@ function geocode(e) {
             const { precipProbability } = data.daily.data[0];
             const { temperatureLow, temperatureHigh } = data.daily.data[1];
 
+            let iconImage = `${icon}.png`;
             let weatherNight = `
                   <div class="stars"></div>
                   <div class="twinkling"></div>`;
@@ -131,9 +134,9 @@ function geocode(e) {
             let weatherInfo = `
                   <div class="data">
                     <div class="today">
-                      <p><span class="impact">Today</span><br><br>${
-                        data.daily.data[0].summary
-                      }</p><br>
+                      <p><span class="impact">Today</span><img src="images/${iconImage}"><br><br>${
+              data.daily.data[0].summary
+            }</p><br>
                       <P>Temperature<br><span class="color">L ${convertToCel(
                         data.daily.data[0].temperatureLow
                       )} <span class="unit">C </span><br>H ${convertToCel(
@@ -150,9 +153,9 @@ function geocode(e) {
                       <P>UV Index <span class="color">${uvIndex}</span></P>
                     </div>
                     <div class="tomorrow">
-                      <p><span class="impact">Tomorrow</span><br><br>${
-                        data.daily.data[1].summary
-                      }</p><br>
+                      <p><span class="impact">Tomorrow</span><img src="images/${
+                        data.daily.data[1].icon
+                      }.png"><br><br>${data.daily.data[1].summary}</p><br>
                       <P>Temperature<br><span class="color"><span class="color">L</span> ${convertToCel(
                         temperatureLow
                       )} <span class="unit">C</span><br>H ${convertToCel(
@@ -174,14 +177,18 @@ function geocode(e) {
                         data.daily.data[1].uvIndex
                       }</span></P>
                     </div>
-                  </div>`;
+                  </div>
+                  <footer>
+                    <h6>Powered by Dark Sky</h6>
+                  </footer>`;
 
             document.querySelector(".results-window").innerHTML = output;
             document.querySelector(
               ".information-content"
             ).innerHTML = weatherInfo;
 
-            searchBtn.innerHTML = "I N F O";
+            searchBtn.innerHTML = "D E T A I L S";
+            searchBtn.classList.add("blink");
           });
       })
       .catch(function(error) {
@@ -194,8 +201,9 @@ function geocode(e) {
 }
 
 function getFocus() {
-  if (searchBtn.innerHTML === "I N F O") {
+  if (searchBtn.innerHTML === "D E T A I L S") {
     searchBtn.innerHTML = "G O";
+    searchBtn.classList.remove("blink");
   }
 }
 
@@ -224,7 +232,7 @@ window.addEventListener("click", e => {
 });
 
 searchBtn.addEventListener("click", () => {
-  if (searchBtn.innerHTML === "I N F O") {
+  if (searchBtn.innerHTML === "D E T A I L S") {
     information.style.display = "block";
     information.classList.add("display");
   }
