@@ -624,11 +624,10 @@ img {
 
   .stars,
   .twinkling {
-    position: absolute;
     top: 50vh;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 50%;
   }
 
   .modal-content-modified {
@@ -653,11 +652,11 @@ img {
   .today p,
   .tomorrow p,
   .color {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .unit {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
 
   .footer-modified {
