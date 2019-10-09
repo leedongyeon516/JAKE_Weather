@@ -618,6 +618,10 @@ img {
     width: 70vw;
   }
 
+  .results-section {
+    height: 70vh;
+  }
+
   .location {
     font-size: 1rem;
   }
