@@ -625,10 +625,10 @@ img {
   .stars,
   .twinkling {
     position: absolute;
-    top: 27.5vh;
+    top: 50vh;
     left: 0;
     width: 100%;
-    height: 72.5vh;
+    height: 50vh;
   }
 
   .modal-content-modified {
@@ -658,6 +658,10 @@ img {
 
   .unit {
     font-size: 0.75rem;
+  }
+
+  .footer-modified {
+    display: block;
   }
 }
 
