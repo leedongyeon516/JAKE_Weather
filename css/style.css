@@ -607,7 +607,7 @@ img {
   .search-section,
   .results-section {
     width: 100%;
-    height: 50vh;
+    height: 30vh;
   }
 
   .search-section h1 {
@@ -624,10 +624,10 @@ img {
 
   .stars,
   .twinkling {
-    top: 50vh;
+    top: 30vh;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 70%;
   }
 
   .modal-content-modified {
