@@ -489,6 +489,7 @@ img {
   .tomorrow {
     width: 100vw;
     height: 50vh;
+    padding: 0;
     margin-right: 0;
     text-align: center;
   }
