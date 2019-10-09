@@ -74,7 +74,7 @@ function geocode(e) {
 
             let output = `
                   <div class="location">
-                    <h1>${city}</h1>
+                    <h1>${city.toUpperCase()}</h1>
                   </div>
                   <div class="result">
                     <div class="summary">
@@ -103,7 +103,7 @@ function geocode(e) {
               output = `
                 ${weatherNight}
                 <div class="location">
-                  <h1>${city}</h1>
+                  <h1>${city.toUpperCase()}</h1>
                 </div>
                 <div class="result">
                   <div class="summary">
@@ -137,45 +137,45 @@ function geocode(e) {
                       <p><span class="impact">Today</span><img src="images/${iconImage}"><br><br>${
               data.daily.data[0].summary
             }</p><br>
-                      <P>Temperature<br><span class="color">L ${convertToCel(
+                      <p>Temperature<br><span class="color">L ${convertToCel(
                         data.daily.data[0].temperatureLow
                       )} <span class="unit">C </span><br>H ${convertToCel(
               data.daily.data[0].temperatureHigh
             )} <span class="unit">C</span></span></p>
-                      <P>Chance of rain <span class="color">${Math.floor(
+                      <p>Chance of rain <span class="color">${Math.floor(
                         precipProbability * 100
-                      )} <span class="unit">%</span></span></P>
-                      <P>Humidity <span class="color">${Math.floor(
+                      )} <span class="unit">%</span></span></p>
+                      <div class="more"><p>Humidity <span class="color">${Math.floor(
                         humidity * 100
-                      )} <span class="unit">%</span></span></P>
-                      <P>Wind <span class="color">${windSpeed} <span class="unit">km/h</span></span></P>
-                      <P>Visibility <span class="color">${visibility} <span class="unit">km</span></span></P>
-                      <P>UV Index <span class="color">${uvIndex}</span></P>
+                      )} <span class="unit">%</span></span></p>
+                      <p>Wind <span class="color">${windSpeed} <span class="unit">km/h</span></span></p>
+                      <p>Visibility <span class="color">${visibility} <span class="unit">km</span></span></p>
+                      <p>UV Index <span class="color">${uvIndex}</span></p></div>
                     </div>
                     <div class="tomorrow">
                       <p><span class="impact">Tomorrow</span><img src="images/${
                         data.daily.data[1].icon
                       }.png"><br><br>${data.daily.data[1].summary}</p><br>
-                      <P>Temperature<br><span class="color"><span class="color">L</span> ${convertToCel(
+                      <p>Temperature<br><span class="color"><span class="color">L</span> ${convertToCel(
                         temperatureLow
                       )} <span class="unit">C</span><br>H ${convertToCel(
               temperatureHigh
             )} <span class="unit">C</span></span></p>
-                      <P>Chance of rain <span class="color">${Math.floor(
+                      <p>Chance of rain <span class="color">${Math.floor(
                         data.daily.data[1].precipProbability * 100
-                      )} <span class="unit">%</span></span></P>
-                      <P>Humidity <span class="color">${Math.floor(
+                      )} <span class="unit">%</span></span></p>
+                      <div class="more"><p>Humidity <span class="color">${Math.floor(
                         data.daily.data[1].humidity * 100
-                      )} <span class="unit">%</span></span></P>
-                      <P>Wind <span class="color">${
+                      )} <span class="unit">%</span></span></p>
+                      <p>Wind <span class="color">${
                         data.daily.data[1].windSpeed
-                      } <span class="unit">km/h</span></span></P>
-                      <P>Visibility <span class="color">${
+                      } <span class="unit">km/h</span></span></p>
+                      <p>Visibility <span class="color">${
                         data.daily.data[1].visibility
-                      } <span class="unit">km</span></span></P>
-                      <P>UV Index <span class="color">${
+                      } <span class="unit">km</span></span></p>
+                      <p>UV Index <span class="color">${
                         data.daily.data[1].uvIndex
-                      }</span></P>
+                      }</span></p></div>
                     </div>
                   </div>
                   <footer class="footer-modified">

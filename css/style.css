@@ -240,7 +240,8 @@ img {
 }
 
 .location h1 {
-  font-family: "Yeon Sung", serif;
+  font-family: "East Sea Dokdo", serif;
+  font-size: 2rem;
   color: white;
   letter-spacing: 0.35rem;
   margin-right: -0.35rem;
@@ -481,6 +482,7 @@ img {
     flex-direction: column;
   }
 
+  .more,
   .information-content h1 {
     display: none;
   }
@@ -492,17 +494,18 @@ img {
     padding: 0;
     margin-right: 0;
     text-align: center;
+    align-items: center;
   }
 
   .today p,
   .tomorrow p,
   .color {
-    font-size: 0.25rem;
+    font-size: 1rem;
     padding-top: 0.5rem;
   }
 
   .unit {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 
   .footer-modified {
@@ -643,6 +646,10 @@ img {
     display: block;
   }
 
+  .more {
+    display: block;
+  }
+
   .information-content p {
     padding-top: 1rem;
   }
@@ -650,7 +657,7 @@ img {
   .today,
   .tomorrow {
     width: 45vw;
-    height: 65vh;
+    height: 100%;
   }
 
   .today p,
