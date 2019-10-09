@@ -578,6 +578,10 @@ img {
     height: 100vh;
   }
 
+  .today {
+    padding-bottom: 0;
+  }
+
   .today p,
   .tomorrow p,
   .color {
