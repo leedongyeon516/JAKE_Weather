@@ -622,6 +622,15 @@ img {
     font-size: 1rem;
   }
 
+  .tars,
+  .twinkling {
+    position: absolute;
+    top: 27.5vh;
+    left: 0;
+    width: 100%;
+    height: 72.5vh;
+  }
+
   .modal-content-modified {
     margin-top: 20%;
   }
@@ -638,7 +647,7 @@ img {
   .today,
   .tomorrow {
     width: 45vw;
-    height: 100%;
+    height: 70vh;
   }
 
   .today p,
