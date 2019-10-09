@@ -637,8 +637,8 @@ img {
 
   .today,
   .tomorrow {
-    width: 50vw;
-    height: 100vh;
+    width: 45vw;
+    height: 100%;
   }
 
   .today p,
@@ -649,6 +649,10 @@ img {
 
   .unit {
     font-size: 0.75rem;
+  }
+
+  .footer-modified {
+    display: block;
   }
 }
 
