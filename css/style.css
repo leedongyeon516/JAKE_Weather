@@ -622,7 +622,7 @@ img {
     font-size: 1rem;
   }
 
-  .tars,
+  .stars,
   .twinkling {
     position: absolute;
     top: 27.5vh;
@@ -647,7 +647,7 @@ img {
   .today,
   .tomorrow {
     width: 45vw;
-    height: 70vh;
+    height: 65vh;
   }
 
   .today p,
@@ -658,10 +658,6 @@ img {
 
   .unit {
     font-size: 0.75rem;
-  }
-
-  .footer-modified {
-    display: block;
   }
 }
 
