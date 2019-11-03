@@ -121,7 +121,7 @@ function geocode(e) {
               resultsSection.style.background = "#999 url('images/Drops_.png')";
             } else if (icon == "snow" || icon == "sleet") {
               resultsSection.classList.add("snow");
-              resultsSection.style.background = "#url('images/Snow_.gif')";
+              resultsSection.style.background = "url('images/Snow_.gif')";
             } else if (icon == "wind" || icon == "fog") {
               resultsSection.classList.add("wind");
               resultsSection.style.background =
