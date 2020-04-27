@@ -7,6 +7,7 @@
 
 body {
   font-family: "Arimo", sans-serif;
+  width: 100%;
 }
 
 input {
@@ -415,6 +416,10 @@ img {
 
 .close-btn:hover {
   color: black;
+}
+
+footer {
+  width: 100%;
 }
 
 @media only screen and (max-height: 325px) {
